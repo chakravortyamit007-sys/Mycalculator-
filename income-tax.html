@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Income Tax Calculator India - Old vs New Regime</title><meta name="description" content="Compare income tax under the old and new regime for salaried individuals in India."><link rel="stylesheet" href="style.css">
+<!-- AdSense verification code goes here -->
+</head><body><header><a href="index.html">Calculators</a><a href="emi.html">EMI</a><a href="sip.html">SIP</a><a href="gst.html">GST</a><a href="income-tax.html">Income Tax</a></header><main><h1>Income Tax Calculator</h1><div class="box"><label>Annual salary income (₹)</label><input id="i" type="number" value="1500000"><label>Deductions for old regime: 80C, HRA, etc. (₹)</label><input id="d" type="number" value="150000"><button onclick="go()">Compare regimes</button><div class="out" id="out"></div></div><div class="ad"><!-- Paste your AdSense ad unit code here after approval --></div><h2>How this works</h2><p>New regime uses a ₹75,000 standard deduction and slabs up to 30% above ₹24 lakh, with tax rebate making income up to ₹12 lakh tax-free. Old regime uses a ₹50,000 standard deduction plus your deductions. Both add 4% cess. Surcharge for incomes above ₹50 lakh is not included. Slabs change in the Budget, so check the Income Tax Department website.</p><h2>Frequently asked questions</h2><h3>Which regime is better?</h3><p>The new regime usually wins unless your deductions are large. Enter your real deductions to compare.</p></main>
+<footer>Results are estimates for information only, not financial advice.</footer><script>const $=i=>document.getElementById(i),n=i=>parseFloat($(i).value)||0,f=v=>'₹ '+Math.round(v).toLocaleString('en-IN');
+const R=(a,b)=>'<div class="row"><span>'+a+'</span><b>'+b+'</b></div>';function tax(inc,sl){let t=0,prev=0;for(const [lim,rt] of sl){if(inc>prev){t+=(Math.min(inc,lim)-prev)*rt}prev=lim}return t}
+function go(){const g=n('i'),d=n('d'),I=1/0;
+const ni=Math.max(0,g-75000);let nt=tax(ni,[[400000,0],[800000,.05],[1200000,.1],[1600000,.15],[2000000,.2],[2400000,.25],[I,.3]]);
+if(ni<=1200000)nt=0;else nt=Math.min(nt,ni-1200000);
+const oi=Math.max(0,g-50000-d);let ot=tax(oi,[[250000,0],[500000,.05],[1000000,.2],[I,.3]]);if(oi<=500000)ot=0;
+nt*=1.04;ot*=1.04;const b=nt<=ot?'New regime':'Old regime';
+$('out').innerHTML=R('Tax: new regime',f(nt))+R('Tax: old regime',f(ot))+R('Lower tax','<span class="big">'+b+'</span>')+R('You save',f(Math.abs(nt-ot)));}go();</script></body></html>
