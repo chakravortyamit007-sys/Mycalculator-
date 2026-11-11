@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BMI Calculator – Check Your Body Mass Index | HisaabKitab</title>
+<meta name="description" content="Free BMI calculator. Enter your height and weight to find your Body Mass Index and see if you are underweight, normal, overweight or obese.">
+<link rel="canonical" href="https://hisaabkitab.co/bmi-calculator.html">
+<style>
+  :root { --ink:#1b2a2f; --muted:#5b6b70; --line:#d9e2e4; --bg:#f6f9f9; --accent:#0f766e; --card:#ffffff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  main { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+  h1 { font-size: 1.7rem; margin: 8px 0 4px; }
+  h2 { font-size: 1.25rem; margin-top: 32px; }
+  .sub { color:var(--muted); margin-top:0; }
+  .calc { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; margin-top:16px; }
+  .unit { display:flex; gap:8px; margin-bottom:16px; }
+  .unit button { flex:1; padding:10px; border:1px solid var(--line); background:#fff; border-radius:8px; font-size:1rem; cursor:pointer; }
+  .unit button[aria-pressed="true"] { background:var(--accent); color:#fff; border-color:var(--accent); }
+  label { display:block; font-weight:600; margin:12px 0 4px; }
+  input { width:100%; padding:12px; font-size:1.05rem; border:1px solid var(--line); border-radius:8px; }
+  input:focus, button:focus-visible { outline:3px solid #99d5cf; outline-offset:1px; }
+  .row { display:flex; gap:10px; }
+  .row > div { flex:1; }
+  .go { width:100%; margin-top:18px; padding:14px; font-size:1.05rem; font-weight:600; background:var(--accent); color:#fff; border:0; border-radius:8px; cursor:pointer; }
+  #result { margin-top:18px; padding:16px; border-radius:10px; background:#eef7f6; display:none; }
+  #bmi { font-size:2.2rem; font-weight:700; margin:0; }
+  #cat { font-weight:600; margin:2px 0 6px; }
+  #range { color:var(--muted); margin:0; }
+  #err { color:#b42318; margin-top:12px; display:none; }
+  table { width:100%; border-collapse:collapse; background:var(--card); }
+  th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); }
+  .scroll { overflow-x:auto; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin:8px 0; }
+  summary { font-weight:600; cursor:pointer; }
+  nav a, .related a { color:var(--accent); }
+  .related ul { padding-left:18px; }
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="/">← All calculators</a></nav>
+
+  <h1>BMI Calculator</h1>
+  <p class="sub">Enter your height and weight to find your Body Mass Index (BMI).</p>
+
+  <div class="calc">
+    <div class="unit" role="group" aria-label="Units">
+      <button type="button" id="metric" aria-pressed="true">Metric (cm, kg)</button>
+      <button type="button" id="imperial" aria-pressed="false">Imperial (ft, lb)</button>
+    </div>
+
+    <div id="metricFields">
+      <div class="row">
+        <div><label for="cm">Height (cm)</label><input id="cm" type="number" inputmode="decimal" placeholder="170"></div>
+        <div><label for="kg">Weight (kg)</label><input id="kg" type="number" inputmode="decimal" placeholder="65"></div>
+      </div>
+    </div>
+
+    <div id="imperialFields" hidden>
+      <div class="row">
+        <div><label for="ft">Height (ft)</label><input id="ft" type="number" inputmode="decimal" placeholder="5"></div>
+        <div><label for="inch">Height (in)</label><input id="inch" type="number" inputmode="decimal" placeholder="7"></div>
+        <div><label for="lb">Weight (lb)</label><input id="lb" type="number" inputmode="decimal" placeholder="143"></div>
+      </div>
+    </div>
+
+    <button class="go" id="calc" type="button">Calculate BMI</button>
+    <div id="err" role="alert"></div>
+
+    <div id="result" aria-live="polite">
+      <p id="bmi"></p>
+      <p id="cat"></p>
+      <p id="range"></p>
+    </div>
+  </div>
+
+  <h2>BMI categories</h2>
+  <div class="scroll">
+    <table>
+      <tr><th>BMI</th><th>Category</th></tr>
+      <tr><td>Below 18.5</td><td>Underweight</td></tr>
+      <tr><td>18.5 – 24.9</td><td>Normal weight</td></tr>
+      <tr><td>25 – 29.9</td><td>Overweight</td></tr>
+      <tr><td>30 and above</td><td>Obese</td></tr>
+    </table>
+  </div>
+  <p class="sub">These are the standard WHO categories. Some Asian health guidelines use lower cut-offs (for example, overweight from 23), so check with your doctor.</p>
+
+  <h2>What is BMI?</h2>
+  <p>BMI, or Body Mass Index, is a number that compares your weight with your height. Doctors and health workers use it as a quick screening tool to see whether a person is underweight, in a healthy range, overweight or obese. Our free BMI calculator gives you the result in seconds using either metric (cm, kg) or imperial (feet, pounds) units.</p>
+
+  <h2>BMI formula</h2>
+  <p>The formula is simple: <strong>BMI = weight (kg) ÷ height (m)²</strong>. For feet and pounds, it is <strong>BMI = 703 × weight (lb) ÷ height (in)²</strong>.</p>
+  <p><strong>Example:</strong> If you are 170 cm tall and weigh 65 kg, your height is 1.70 m. BMI = 65 ÷ (1.70 × 1.70) = 65 ÷ 2.89 = <strong>22.5</strong>. This falls in the normal weight range.</p>
+
+  <h2>What is a healthy BMI for Indians?</h2>
+  <p>The WHO considers a BMI of 18.5 to 24.9 as normal. However, Indians and other South Asians can carry more body fat and face a higher risk of diabetes and heart disease at a lower BMI. Because of this, Indian health guidelines often treat a BMI of 23 or above as overweight and 25 or above as obese. If your BMI is close to these limits, it is a good idea to speak with your doctor.</p>
+
+  <h2>How to use this BMI calculator</h2>
+  <p>Choose your unit, enter your height and weight, and tap Calculate BMI. You will see your BMI, your category and the normal weight range for your height. Measure your weight in the morning and without heavy clothes for the most consistent result.</p>
+
+  <h2>Limits of BMI</h2>
+  <p>BMI is only a screening number. It does not measure body fat directly and cannot tell muscle from fat, so athletes and gym-goers may show a high BMI while being healthy. It is also less reliable for children, teenagers, pregnant women and older adults. Waist size, diet, activity level and medical history matter too.</p>
+
+  <h2>Tips to maintain a healthy weight</h2>
+  <ul>
+    <li>Eat balanced meals with vegetables, protein and whole grains.</li>
+    <li>Walk or exercise for at least 30 minutes most days.</li>
+    <li>Sleep 7 to 8 hours and manage stress.</li>
+    <li>Limit sugary drinks, fried food and late-night snacking.</li>
+    <li>Change weight gradually rather than with crash diets.</li>
+  </ul>
+  <p><em>This calculator is for general information only and is not medical advice. Please consult a doctor or dietitian for personal guidance.</em></p>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>What is a healthy BMI?</summary><p>For most adults, a BMI between 18.5 and 24.9 is considered the normal range.</p></details>
+  <details><summary>Is BMI accurate for everyone?</summary><p>No. It is a general screening tool and can be misleading for athletes, older adults, pregnant women and children.</p></details>
+  <details><summary>How can I lower my BMI?</summary><p>A balanced diet, regular physical activity, good sleep and gradual weight change are the usual approaches. A doctor or dietitian can give a plan that suits you.</p></details>
+  <details><summary>How do I convert feet and inches to cm?</summary><p>Multiply feet by 30.48 and inches by 2.54, then add them. For example, 5 ft 7 in = 152.4 + 17.78 = 170.2 cm.</p></details>
+
+  <div class="related">
+    <h2>Related calculators</h2>
+    <ul>
+      <li><a href="/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="/income-tax-calculator.html">Income Tax Calculator</a></li>
+    </ul>
+  </div>
+</main>
+
+<script>
+(function () {
+  var unit = "metric";
+  var $ = function (id) { return document.getElementById(id); };
+
+  function setUnit(u) {
+    unit = u;
+    $("metric").setAttribute("aria-pressed", u === "metric");
+    $("imperial").setAttribute("aria-pressed", u === "imperial");
+    $("metricFields").hidden = u !== "metric";
+    $("imperialFields").hidden = u !== "imperial";
+    $("result").style.display = "none";
+    $("err").style.display = "none";
+  }
+  $("metric").onclick = function () { setUnit("metric"); };
+  $("imperial").onclick = function () { setUnit("imperial"); };
+
+  function showError(msg) {
+    $("result").style.display = "none";
+    $("err").textContent = msg;
+    $("err").style.display = "block";
+  }
+
+  $("calc").onclick = function () {
+    var m, kg;
+    if (unit === "metric") {
+      var cm = parseFloat($("cm").value);
+      kg = parseFloat($("kg").value);
+      if (!(cm > 0) || !(kg > 0)) return showError("Enter your height in cm and weight in kg.");
+      m = cm / 100;
+    } else {
+      var ft = parseFloat($("ft").value) || 0;
+      var inch = parseFloat($("inch").value) || 0;
+      var lb = parseFloat($("lb").value);
+      var totalIn = ft * 12 + inch;
+      if (!(totalIn > 0) || !(lb > 0)) return showError("Enter your height in feet and inches and weight in pounds.");
+      m = totalIn * 0.0254;
+      kg = lb * 0.45359237;
+    }
+    if (m < 0.5 || m > 2.8 || kg < 10 || kg > 500) return showError("Please check your values. They look outside the normal range.");
+
+    $("err").style.display = "none";
+    var bmi = kg / (m * m);
+    var cat = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Normal weight" : bmi < 30 ? "Overweight" : "Obese";
+    var lo = (18.5 * m * m), hi = (24.9 * m * m);
+
+    $("bmi").textContent = "BMI " + bmi.toFixed(1);
+    $("cat").textContent = cat;
+    $("range").textContent = unit === "metric"
+      ? "Normal weight for your height: " + lo.toFixed(1) + " – " + hi.toFixed(1) + " kg"
+      : "Normal weight for your height: " + (lo / 0.45359237).toFixed(0) + " – " + (hi / 0.45359237).toFixed(0) + " lb";
+    $("result").style.display = "block";
+  };
+})();
+</script>
+</body>
+</html>
