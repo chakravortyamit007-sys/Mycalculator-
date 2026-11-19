@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Free QR Code Generator - URL, WhatsApp, UPI & Text | HisaabKitab</title>
+
+<meta name="description" content="Create free QR codes online for website links, WhatsApp chat, UPI payment and text. Choose size and colours and download as PNG. No sign-up, works on mobile.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%A7%AE%3C/text%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.qr-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.qr-box{border:1px solid #d9dde3;border-radius:10px;padding:16px;background:#fff}
+.qr-box label{display:block;font-weight:600;margin:12px 0 4px;font-size:14px}
+.qr-box label:first-child{margin-top:0}
+.qr-box input,.qr-box select,.qr-box textarea{width:100%;padding:10px;border:1px solid #c5cad3;border-radius:6px;font:inherit;box-sizing:border-box}
+.qr-box input[type=color]{padding:2px;height:40px}
+.qr-row{display:flex;gap:12px}
+.qr-row>div{flex:1}
+.qr-out{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center}
+#qrcode{padding:12px;background:#fff;display:inline-block}
+#qrcode img,#qrcode canvas{max-width:100%;height:auto}
+.qr-btn{margin-top:14px;padding:12px 22px;border:0;border-radius:6px;background:#0f766e;color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.qr-btn:disabled{background:#9aa5a3;cursor:not-allowed}
+.qr-msg{color:#b42318;font-size:14px;min-height:20px;margin-top:8px}
+.qr-hint{font-size:13px;color:#667085;margin-top:4px}
+.hidden{display:none}
+@media(max-width:700px){.qr-wrap{grid-template-columns:1fr}}
+</style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7023548951623868" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header>
+<div class="bar">
+
+<a class="brand" href="index.html">Hisaab<span>Kitab</span></a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="emi.html">EMI</a>
+<a href="sip.html">SIP</a>
+<a href="gst.html">GST</a>
+<a href="income-tax.html">Income Tax</a>
+<a href="bmi-calculator.html">BMI</a>
+<a href="travel-bill-generator.html">Travel Bill</a>
+<a href="rent-receipt-generator.html">Rent Receipt</a>
+<a href="tools.html">Tools</a>
+</nav>
+
+</div>
+</header>
+
+<section class="hero">
+<h1>Free QR Code Generator</h1>
+<p>Make a QR code for a website link, WhatsApp chat, UPI payment or any text. Download it as a PNG. No sign-up.</p>
+</section>
+
+<main>
+
+<div class="qr-wrap">
+
+<div class="qr-box">
+
+<label for="type">QR code type</label>
+<select id="type">
+<option value="url">Website link / URL</option>
+<option value="whatsapp">WhatsApp chat</option>
+<option value="upi">UPI payment</option>
+<option value="text">Plain text</option>
+</select>
+
+<div id="f-url">
+<label for="url">Website link</label>
+<input id="url" type="text" placeholder="https://hisaabkitab.co">
+</div>
+
+<div id="f-whatsapp" class="hidden">
+<label for="wa-num">WhatsApp number (10 digits)</label>
+<input id="wa-num" type="tel" inputmode="numeric" placeholder="9876543210">
+<label for="wa-msg">Message (optional)</label>
+<input id="wa-msg" type="text" placeholder="Hi, I want to order">
+</div>
+
+<div id="f-upi" class="hidden">
+<label for="upi-id">UPI ID</label>
+<input id="upi-id" type="text" placeholder="name@bank">
+<label for="upi-name">Payee name</label>
+<input id="upi-name" type="text" placeholder="Your name or shop name">
+<label for="upi-amt">Amount in ₹ (optional)</label>
+<input id="upi-amt" type="number" min="0" step="0.01" placeholder="500">
+</div>
+
+<div id="f-text" class="hidden">
+<label for="txt">Text</label>
+<textarea id="txt" rows="4" placeholder="Type any text"></textarea>
+</div>
+
+<div class="qr-row">
+<div>
+<label for="size">Size</label>
+<select id="size">
+<option value="200">Small (200 px)</option>
+<option value="300" selected>Medium (300 px)</option>
+<option value="500">Large (500 px)</option>
+<option value="800">Print (800 px)</option>
+</select>
+</div>
+<div>
+<label for="level">Error correction</label>
+<select id="level">
+<option value="L">Low</option>
+<option value="M" selected>Medium</option>
+<option value="Q">Quartile</option>
+<option value="H">High</option>
+</select>
+</div>
+</div>
+
+<div class="qr-row">
+<div>
+<label for="fg">QR colour</label>
+<input id="fg" type="color" value="#000000">
+</div>
+<div>
+<label for="bg">Background</label>
+<input id="bg" type="color" value="#ffffff">
+</div>
+</div>
+
+<button class="qr-btn" id="gen" type="button">Generate QR code</button>
+<div class="qr-msg" id="msg" role="alert"></div>
+
+</div>
+
+<div class="qr-box qr-out">
+<div id="placeholder" class="qr-hint">Your QR code will appear here.</div>
+<div id="qrcode"></div>
+<button class="qr-btn hidden" id="dl" type="button">Download PNG</button>
+<div class="qr-hint hidden" id="hint">Scan it with your phone camera to test before printing.</div>
+</div>
+
+</div>
+
+<div class="ad">
+<!-- Paste AdSense ad unit code here after approval -->
+Advertisement
+</div>
+
+<div class="txt">
+<h2>Free QR Code Generator for Links, WhatsApp and UPI</h2>
+<p>A QR code lets anyone open a website, start a WhatsApp chat or pay you by UPI just by scanning with a phone camera. Shops, cafes, freelancers, schools and event organisers use them every day. This free QR code generator creates a code in seconds. You choose the type, fill in the details and download a PNG. There is no sign-up, no watermark and no expiry date.</p>
+<h2>What is a QR code?</h2>
+<p>QR stands for Quick Response. It is a square pattern of black and white modules that stores text. When a phone camera reads it, the phone decodes the text and decides what to do. A web address opens in the browser, a UPI link opens a payment app, and a WhatsApp link opens a chat. The codes made here are static, which means the information is stored inside the picture itself. They never expire and do not depend on our website to keep working.</p>
+<h2>Types of QR code you can make</h2>
+<p><b>Website link:</b> paste any address, such as your shop page or Instagram profile. If you forget https://, the tool adds it. <b>WhatsApp chat:</b> enter a 10-digit Indian number and an optional message. When customers scan, WhatsApp opens a chat with you and the message is already typed. This is popular for orders, enquiries and bookings. <b>UPI payment:</b> enter your UPI ID, your name and, if you like, an amount. Apps such as Google Pay, PhonePe and Paytm open a payment screen with your details filled in. <b>Plain text:</b> store an address, a note or any short message.</p>
+<h2>How to create a QR code step by step</h2>
+<ol>
+<li>Select the QR code type from the drop-down list.</li>
+<li>Fill in the fields that appear. For example, enter your link or your WhatsApp number.</li>
+<li>Choose the size. Medium is fine for screens. Choose Large or Print for posters and boards.</li>
+<li>Pick colours if you want. Keep the code dark and the background light.</li>
+<li>Press Generate QR code and check the preview.</li>
+<li>Press Download PNG to save the image.</li>
+</ol>
+<h2>Making a UPI QR code for your shop</h2>
+<p>Many small businesses print a UPI QR code and keep it at the counter. To make one, enter your UPI ID exactly as it appears in your payment app, for example name@bank. Add your shop name so customers see it before paying. Leave the amount empty if customers will type their own, or enter a fixed amount for a set price such as a membership fee. Before printing, scan your code with your phone and make a small test payment to your own account. Check that the name and UPI ID are correct on the payment screen.</p>
+<h2>Making a WhatsApp QR code for orders and enquiries</h2>
+<p>A WhatsApp QR code removes the need to save a number before chatting. Cafes can put it on menu cards, tutors on pamphlets and shops on windows. Add a short message like "Hi, I want to order" so you know why the customer is writing. Keep the message simple, because long messages make the code denser and harder to scan.</p>
+<h2>Size, colours and error correction</h2>
+<p>Size changes the number of pixels in the PNG. Use 300 px for screens and 800 px when printing on large boards, so edges stay sharp. For colours, always keep strong contrast. A black code on white is the safest. Avoid light colours on a light background and avoid inverted codes, because some phones cannot read them. Error correction decides how much damage the code can take and still scan. Low is the smallest pattern. Medium suits most uses. Quartile and High add redundancy for printed codes that may get dirty or scratched, but the pattern becomes denser.</p>
+<h2>Tips for printing QR codes</h2>
+<ul>
+<li>Print at least 2 cm by 2 cm. Larger is better for codes that people scan from a distance.</li>
+<li>Leave a blank margin around the code. Do not let text or pictures touch it.</li>
+<li>Use matte paper or a matte laminate. Glossy surfaces reflect light and block scanning.</li>
+<li>Test with two or three different phones before printing many copies.</li>
+</ul>
+<h2>Is it safe to use?</h2>
+<p>Your link, phone number, UPI ID and text are processed in your browser. They are not sent to our server or saved. When you close the page, the data is gone, so download your PNG first. Only share QR codes that you created yourself, and be careful when scanning codes from unknown people, because a code can hide any link.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is this QR code generator free?</h3>
+<p>Yes. It is free to use, with no watermark and no account.</p>
+<h3>Will my QR code stop working?</h3>
+<p>No. Static codes keep working forever. If you change your link or number, make a new code.</p>
+<h3>Can I add a logo to the QR code?</h3>
+<p>Not at present. You can change the colours and size.</p>
+<h3>Why will my QR code not scan?</h3>
+<p>Usually the contrast is low, the code is too small or the text is too long. Use dark on light, increase the size and shorten the content.</p>
+<h3>Does it work on mobile?</h3>
+<p>Yes. It works in Android and iPhone browsers, and you can save the PNG to your gallery.</p>
+</div>
+</main>
+
+<footer>
+
+<div>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+<a href="disclaimer.html">Disclaimer</a>
+</div>
+
+<p>© 2026 HisaabKitab. Calculators give estimates only and are not financial advice.</p>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  var $ = function(id){return document.getElementById(id);};
+  var type = $('type');
+  var panels = {url:$('f-url'),whatsapp:$('f-whatsapp'),upi:$('f-upi'),text:$('f-text')};
+  var qr = null;
+
+  type.addEventListener('change', function(){
+    for (var k in panels) panels[k].classList.toggle('hidden', k !== type.value);
+    $('msg').textContent = '';
+  });
+
+  function buildData(){
+    var t = type.value;
+    if (t === 'url'){
+      var u = $('url').value.trim();
+      if (!u) return {err:'Enter a website link.'};
+      if (!/^https?:\/\//i.test(u)) u = 'https://' + u;
+      return {data:u};
+    }
+    if (t === 'whatsapp'){
+      var n = $('wa-num').value.replace(/\D/g,'');
+      if (n.length === 12 && n.indexOf('91') === 0) n = n.slice(2);
+      if (n.length !== 10) return {err:'Enter a valid 10-digit WhatsApp number.'};
+      var m = $('wa-msg').value.trim();
+      return {data:'https://wa.me/91' + n + (m ? '?text=' + encodeURIComponent(m) : '')};
+    }
+    if (t === 'upi'){
+      var id = $('upi-id').value.trim();
+      if (!/^[\w.\-]{2,}@[A-Za-z]{2,}$/.test(id)) return {err:'Enter a valid UPI ID, for example name@bank.'};
+      var nm = $('upi-name').value.trim();
+      var amt = $('upi-amt').value.trim();
+      var s = 'upi://pay?pa=' + encodeURIComponent(id);
+      if (nm) s += '&pn=' + encodeURIComponent(nm);
+      if (amt && Number(amt) > 0) s += '&am=' + Number(amt).toFixed(2);
+      s += '&cu=INR';
+      return {data:s};
+    }
+    var x = $('txt').value;
+    if (!x.trim()) return {err:'Enter some text.'};
+    return {data:x};
+  }
+
+  $('gen').addEventListener('click', function(){
+    var r = buildData();
+    if (r.err){ $('msg').textContent = r.err; return; }
+    $('msg').textContent = '';
+    var size = parseInt($('size').value, 10);
+    var box = $('qrcode');
+    box.innerHTML = '';
+    if (typeof QRCode === 'undefined'){
+      $('msg').textContent = 'QR library could not load. Check your internet connection and try again.';
+      return;
+    }
+    try {
+      qr = new QRCode(box, {
+        text: r.data,
+        width: size,
+        height: size,
+        colorDark: $('fg').value,
+        colorLight: $('bg').value,
+        correctLevel: QRCode.CorrectLevel[$('level').value]
+      });
+    } catch (e){
+      $('msg').textContent = 'Too much data for a QR code. Shorten the text or choose a lower error correction.';
+      return;
+    }
+    $('placeholder').classList.add('hidden');
+    $('dl').classList.remove('hidden');
+    $('hint').classList.remove('hidden');
+  });
+
+  $('dl').addEventListener('click', function(){
+    var box = $('qrcode');
+    var canvas = box.querySelector('canvas');
+    var href;
+    if (canvas) href = canvas.toDataURL('image/png');
+    else { var img = box.querySelector('img'); if (img) href = img.src; }
+    if (!href) return;
+    var a = document.createElement('a');
+    a.href = href;
+    a.download = 'qr-code.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>
