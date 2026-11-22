@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rent Receipt Generator for HRA – Free PDF, India | HisaabKitab</title>
+<meta name="description" content="Create rent receipts online for free in India. Add tenant, landlord, property, rent period and payment details, then print or download a rent receipt PDF for HRA.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://hisaabkitab.co/rent-receipt-generator.html">
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"Is this rent receipt generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can create and print receipts without signing up."}},
+{"@type":"Question","name":"Can I use the receipt for HRA claims?","acceptedAnswer":{"@type":"Answer","text":"You can use it as supporting proof of rent paid. Your employer may also ask for a rent agreement, bank statements or a landlord PAN."}},
+{"@type":"Question","name":"Is landlord PAN compulsory?","acceptedAnswer":{"@type":"Answer","text":"Employers commonly ask for the landlord's PAN when annual rent is above Rs 1 lakh. Below that, it is usually optional."}},
+{"@type":"Question","name":"Does HisaabKitab store my details?","acceptedAnswer":{"@type":"Answer","text":"No. The receipt is created in your browser and the entered details are not sent to the server."}}
+]
+}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#5b6678;--line:#d5dbe4;--bg:#f2f5f8;--card:#fff;--accent:#0c6b73;--soft:#e8f3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",system-ui,sans-serif}
+header{max-width:1100px;margin:auto;padding:22px 16px 8px}
+h1{font-size:1.65rem;margin:0}
+header p{color:var(--muted);margin:5px 0}
+.topnav{font-size:.85rem;margin-bottom:8px}
+.topnav a{color:var(--accent);text-decoration:none;margin-right:12px}
+main{max-width:1100px;margin:auto;padding:12px 16px 36px;display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:16px}
+@media(max-width:850px){main{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+h2{font-size:1.05rem;color:var(--accent);margin:14px 0 8px}
+h2:first-child{margin-top:0}
+label{display:block;color:var(--muted);font-size:.83rem;margin:9px 0 3px}
+input,select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:#17243a;font:inherit}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+button{border:1px solid var(--accent);border-radius:7px;padding:9px 13px;background:#fff;color:var(--accent);font:inherit;cursor:pointer}
+button.primary{background:var(--accent);color:#fff}
+.hint{font-size:.78rem;color:var(--muted)}
+#message{min-height:1.2em}
+.preview-wrap{overflow:auto}
+#receipt{width:100%;max-width:760px;min-height:480px;margin:auto;background:#fff;color:#17243a;padding:38px;border:1px solid #d5dbe4;box-shadow:0 2px 10px #17243a12}
+#receipt .heading{text-align:center;border-bottom:2px solid #0c6b73;padding-bottom:15px}
+#receipt .heading h2{font-size:22px;color:#0c6b73;margin:0 0 4px}
+#receipt .sub{font-size:12px;color:#5b6678}
+#receipt .topline{display:flex;justify-content:space-between;gap:14px;margin:18px 0}
+#receipt .pill{background:#f2f7f8;padding:10px 12px;border-left:3px solid #0c6b73;flex:1}
+#receipt .label{font-size:11px;color:#5b6678;text-transform:uppercase;letter-spacing:.04em}
+#receipt p{margin:10px 0}
+#receipt .amount{font-size:22px;font-weight:700;color:#0c6b73}
+#receipt .details{width:100%;border-collapse:collapse;margin-top:16px}
+#receipt .details td{padding:9px 7px;border-bottom:1px solid #e1e6ed;vertical-align:top}
+#receipt .details td:first-child{width:36%;color:#5b6678}
+#receipt .signature{margin-top:48px;display:flex;justify-content:space-between;gap:20px}
+#receipt .signline{border-top:1px solid #17243a;min-width:170px;text-align:center;padding-top:6px;font-size:12px}
+#receipt .foot{border-top:1px solid #d5dbe4;margin-top:28px;padding-top:10px;text-align:center;font-size:11px;color:#5b6678}
+article.seo{max-width:850px;margin:0 auto;padding:8px 16px 48px;line-height:1.7}
+article.seo h2{font-size:1.4rem;color:var(--ink)}
+article.seo h3{font-size:1.05rem;color:var(--accent);margin:20px 0 5px}
+@media print{
+ @page{size:A4;margin:14mm}
+ body{background:#fff}
+ header,.form-panel,.seo,.hide-print{display:none!important}
+ main{display:block;padding:0;margin:0}
+ .preview-wrap{overflow:visible}
+ #receipt{width:100%;max-width:none;min-height:0;border:0;box-shadow:none;padding:8mm;margin:0}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="topnav"><a href="/">Home</a><a href="/travel-bill-generator.html">Travel Bill</a><a href="/invoice-generator.html">Invoice Generator</a><a href="/pdf-tools.html">PDF Tools</a></div>
+<h1>Free Rent Receipt Generator</h1>
+<p>Create a rent receipt for your records or HRA documentation. Fill in the details, preview it and save as PDF.</p>
+</header>
+
+<main>
+<section class="panel form-panel" aria-label="Rent receipt details">
+<h2>Landlord details</h2>
+<label for="landlord">Landlord name *</label><input id="landlord" autocomplete="name" placeholder="e.g. Amit Sharma">
+<label for="landlordAddress">Landlord address</label><textarea id="landlordAddress" rows="2" placeholder="Full address"></textarea>
+<div class="row">
+ <div><label for="landlordPan">Landlord PAN (optional)</label><input id="landlordPan" maxlength="10" placeholder="ABCDE1234F"></div>
+ <div><label for="receiptNo">Receipt number</label><input id="receiptNo" placeholder="RR-001"></div>
+</div>
+
+<h2>Tenant details</h2>
+<label for="tenant">Tenant name *</label><input id="tenant" placeholder="e.g. Priya Verma">
+<label for="tenantAddress">Tenant address (optional)</label><textarea id="tenantAddress" rows="2" placeholder="Tenant's current address"></textarea>
+
+<h2>Rental property</h2>
+<label for="property">Rented property address *</label><textarea id="property" rows="2" placeholder="Flat / house number, street, city, PIN code"></textarea>
+<div class="row">
+ <div><label for="periodFrom">Rent period – from *</label><input id="periodFrom" type="date"></div>
+ <div><label for="periodTo">Rent period – to *</label><input id="periodTo" type="date"></div>
+</div>
+<div class="row">
+ <div><label for="rent">Monthly rent (₹) *</label><input id="rent" type="number" min="0" step="0.01" placeholder="12000"></div>
+ <div><label for="receiptDate">Receipt date *</label><input id="receiptDate" type="date"></div>
+</div>
+
+<h2>Payment details</h2>
+<div class="row">
+ <div><label for="paymentMode">Payment mode</label>
+  <select id="paymentMode"><option>Bank transfer</option><option>UPI</option><option>Cash</option><option>Cheque</option><option>Other</option></select>
+ </div>
+ <div><label for="transaction">Transaction / cheque reference</label><input id="transaction" placeholder="Optional reference"></div>
+</div>
+<label for="notes">Additional note (optional)</label><textarea id="notes" rows="2" placeholder="Any additional payment details"></textarea>
+
+<div class="actions hide-print">
+ <button class="primary" type="button" id="download">Download PDF</button>
+ <button type="button" id="print">Print / Save PDF</button>
+ <button type="button" id="clear">Clear form</button>
+</div>
+<p class="hint" id="message" role="status" aria-live="polite"></p>
+<p class="hint">Your entries are used in this browser to create the receipt. This page does not send the details to HisaabKitab.</p>
+</section>
+
+<section class="preview-wrap" aria-label="Live rent receipt preview">
+<div id="receipt">
+ <div class="heading"><h2>RENT RECEIPT</h2><div class="sub">Payment acknowledgement</div></div>
+ <div class="topline">
+  <div class="pill"><div class="label">Receipt no.</div><strong id="pReceiptNo">—</strong></div>
+  <div class="pill"><div class="label">Receipt date</div><strong id="pReceiptDate">—</strong></div>
+ </div>
+ <p>Received with thanks from <strong id="pTenant">Tenant name</strong> the sum of:</p>
+ <p class="amount" id="pAmount">₹0.00</p>
+ <p id="pWords">Rupees Zero Only</p>
+ <p>towards rent for the period <strong id="pPeriod">—</strong> for the property situated at <strong id="pProperty">Property address</strong>.</p>
+ <table class="details">
+  <tr><td>Landlord</td><td id="pLandlord">Landlord name</td></tr>
+  <tr><td>Landlord address</td><td id="pLandlordAddress">—</td></tr>
+  <tr><td>Landlord PAN</td><td id="pPan">Not provided</td></tr>
+  <tr><td>Tenant address</td><td id="pTenantAddress">—</td></tr>
+  <tr><td>Payment mode</td><td id="pMode">Bank transfer</td></tr>
+  <tr><td>Transaction reference</td><td id="pTransaction">—</td></tr>
+  <tr><td>Additional note</td><td id="pNotes">—</td></tr>
+ </table>
+ <div class="signature"><div class="sub">Generated using HisaabKitab Rent Receipt Generator</div><div class="signline">Landlord / authorised signature</div></div>
+ <div class="foot">This receipt records the details entered by the user. Please verify all details before signing or submitting it.</div>
+</div>
+</section>
+</main>
+
+<article class="seo">
+<h2>Free Rent Receipt Generator for HRA in India</h2>
+<p>Salaried tenants are often asked by their employer for rent receipts to support an HRA (House Rent Allowance) claim. This free tool lets you create a clear, professional rent receipt in under a minute. Enter the landlord and tenant details, the rent period and the payment mode, check the live preview, then download a PDF or print it. No signup is needed, and the details you enter stay in your browser.</p>
+
+<h3>What is a rent receipt?</h3>
+<p>A rent receipt is a written acknowledgement from the landlord that rent has been received for a specific period. It normally shows the landlord's and tenant's names, the property address, the amount, the period covered, the date and how the rent was paid.</p>
+
+<h3>Who needs a rent receipt?</h3>
+<ul>
+<li><strong>Salaried employees claiming HRA.</strong> Employers usually collect rent receipts or rent declarations during the tax-proof submission window, often between December and March.</li>
+<li><strong>Tenants</strong> who want a record of every rent payment.</li>
+<li><strong>Landlords</strong> who want a signed record of rent received.</li>
+</ul>
+
+<h3>Details to include for HRA proof</h3>
+<ul>
+<li>Tenant name and landlord name</li>
+<li>Complete address of the rented property</li>
+<li>Rent amount and the period it covers (for example, 01 Apr 2026 to 30 Apr 2026)</li>
+<li>Date of receipt and payment mode (bank transfer, UPI, cheque or cash)</li>
+<li>Landlord's signature</li>
+<li><strong>Landlord's PAN.</strong> Employers commonly ask for it when yearly rent is more than ₹1,00,000, which is about ₹8,333 per month. Check your employer's current requirement.</li>
+</ul>
+<p>Paying by bank transfer or UPI gives you a payment trail that supports the receipt. HRA exemption also depends on your tax regime, salary structure and city, so confirm the details with your employer or a tax adviser.</p>
+
+<h3>How to create a rent receipt</h3>
+<ol>
+<li>Enter the landlord's name, address and PAN if applicable.</li>
+<li>Enter the tenant's name and the full address of the rented property.</li>
+<li>Choose the rent period and enter the monthly rent.</li>
+<li>Add the receipt date, payment mode and transaction reference.</li>
+<li>Check the preview, then tap Download PDF or Print / Save PDF.</li>
+<li>Get the landlord to sign it before you submit it.</li>
+</ol>
+
+<h3>Example</h3>
+<p>Priya Verma pays ₹12,000 per month to Amit Sharma by bank transfer. For April 2026 she enters the period 01 Apr 2026 to 30 Apr 2026, amount ₹12,000, and the transfer reference. The receipt shows the amount as "Rupees Twelve Thousand Only". Her yearly rent is ₹1,44,000, which is above ₹1 lakh, so she also adds her landlord's PAN.</p>
+
+<h3>Tips</h3>
+<ul>
+<li>Create one receipt for each month, or one for a quarter if your employer accepts it.</li>
+<li>Use a different receipt number for each receipt.</li>
+<li>Keep rent payments and receipt dates consistent with your bank statement.</li>
+<li>Do not enter a fake landlord, PAN or rent amount. False claims can lead to tax notices and penalties.</li>
+</ul>
+
+<h3>Frequently asked questions</h3>
+<p><strong>Is this rent receipt generator free?</strong><br>Yes. You can create and print receipts without signing up.</p>
+<p><strong>Can I use the receipt for HRA claims?</strong><br>You can use it as supporting proof of rent paid. Your employer may also ask for a rent agreement, bank statements or a landlord PAN. Check what your employer requires.</p>
+<p><strong>Is landlord PAN compulsory?</strong><br>Employers commonly ask for the landlord's PAN when annual rent is above ₹1 lakh. Below that, it is usually optional.</p>
+<p><strong>Do I need a revenue stamp?</strong><br>Requirements differ by situation and state. For ordinary rent receipts, many employers do not insist on one. Ask your employer if you are unsure.</p>
+<p><strong>Can I make receipts for several months?</strong><br>Yes. Change the rent period and receipt number, then download each receipt separately.</p>
+<p><strong>Does HisaabKitab store my details?</strong><br>No. The receipt is created in your browser and the entered details are not sent to our server.</p>
+<p><strong>Is the receipt legally valid on its own?</strong><br>The tool makes a receipt from the details you enter. The landlord should verify and sign it. Validity depends on your situation and the applicable rules.</p>
+
+<h3>More free tools</h3>
+<p>Also try the <a href="/travel-bill-generator.html">Travel Bill Generator</a>, <a href="/invoice-generator.html">Invoice Generator</a>, <a href="/pdf-tools.html">PDF Tools</a>, <a href="/emi.html">EMI Calculator</a>, <a href="/sip.html">SIP Calculator</a>, <a href="/gst.html">GST Calculator</a> and <a href="/income-tax.html">Income Tax Calculator</a>.</p>
+</article>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const fields=["landlord","landlordAddress","landlordPan","receiptNo","tenant","tenantAddress","property","periodFrom","periodTo","rent","receiptDate","paymentMode","transaction","notes"];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>"₹"+Number(n||0).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
+function dateFmt(v){if(!v)return"—";const [y,m,d]=v.split("-").map(Number);return new Date(y,m-1,d).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});}
+function amountWords(value){
+ let n=Math.round(Number(value)||0);if(n===0)return"Zero";
+ const one=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
+ const ten=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+ function two(x){return x<20?one[x]:ten[Math.floor(x/10)]+(x%10?" "+one[x%10]:"");}
+ function three(x){return (x>99?one[Math.floor(x/100)]+" Hundred"+(x%100?" ":""):"")+(x%100?two(x%100):"");}
+ const parts=[],cr=Math.floor(n/1e7),lk=Math.floor(n/1e5)%100,th=Math.floor(n/1e3)%100,rest=n%1000;
+ if(cr)parts.push(two(cr)+" Crore");if(lk)parts.push(two(lk)+" Lakh");if(th)parts.push(two(th)+" Thousand");if(rest)parts.push(three(rest));
+ return parts.join(" ");
+}
+function setText(id,value){$(id).textContent=value||"—";}
+function render(){
+ const rent=Math.max(0,Number($("rent").value)||0);
+ setText("pReceiptNo",$("receiptNo").value||"—");
+ setText("pReceiptDate",dateFmt($("receiptDate").value));
+ setText("pTenant",$("tenant").value||"Tenant name");
+ setText("pAmount",money(rent));
+ setText("pWords","Rupees "+amountWords(rent)+" Only");
+ const from=dateFmt($("periodFrom").value),to=dateFmt($("periodTo").value);
+ setText("pPeriod",($("periodFrom").value||$("periodTo").value)?from+" to "+to:"—");
+ setText("pProperty",$("property").value||"Property address");
+ setText("pLandlord",$("landlord").value||"Landlord name");
+ setText("pLandlordAddress",$("landlordAddress").value);
+ setText("pPan",$("landlordPan").value.toUpperCase()||"Not provided");
+ setText("pTenantAddress",$("tenantAddress").value);
+ setText("pMode",$("paymentMode").value);
+ setText("pTransaction",$("transaction").value);
+ setText("pNotes",$("notes").value);
+}
+fields.forEach(id=>$(id).addEventListener("input",render));
+$("landlordPan").addEventListener("input",e=>{e.target.value=e.target.value.toUpperCase();render();});
+function valid(){
+ if(!$("landlord").value.trim()||!$("tenant").value.trim()||!$("property").value.trim()||!$("periodFrom").value||!$("periodTo").value||!$("rent").value||!$("receiptDate").value){
+  $("message").textContent="Please complete all required fields marked with *.";return false;
+ }
+ if(Number($("rent").value)<=0){$("message").textContent="Please enter a rent amount greater than zero.";return false;}
+ if($("periodTo").value<$("periodFrom").value){$("message").textContent="The rent period end date must be on or after the start date.";return false;}
+ const pan=$("landlordPan").value.trim();
+ if(pan&&!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(pan)){ $("message").textContent="Please check the landlord PAN format, or leave it blank.";return false;}
+ return true;
+}
+$("download").addEventListener("click",()=>{
+ if(!valid())return;
+ if(!window.html2pdf){$("message").textContent="PDF library could not load. Use Print / Save PDF instead.";return;}
+ $("message").textContent="Preparing your PDF…";
+ const safeName=($("tenant").value.trim()||"tenant").replace(/[^a-z0-9_-]+/gi,"-");
+ html2pdf().set({margin:8,filename:"Rent-Receipt-"+safeName+".pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:true},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}}).from($("receipt")).save().then(()=>{$("message").textContent="Your rent receipt PDF has been downloaded.";}).catch(()=>{$("message").textContent="Could not create the PDF. Please use Print / Save PDF.";});
+});
+$("print").addEventListener("click",()=>{if(valid())window.print();});
+$("clear").addEventListener("click",()=>{
+ if(!confirm("Clear all rent receipt details?"))return;
+ fields.forEach(id=>$(id).value="");
+ $("paymentMode").value="Bank transfer";
+ $("message").textContent="Form cleared.";
+ render();
+});
+const today=new Date(),localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+$("receiptDate").value=localDate;
+$("periodFrom").value=localDate;
+$("periodTo").value=localDate;
+$("receiptNo").value="RR-"+localDate.replace(/-/g,"")+"-001";
+render();
+})();
+</script>
+</body>
+</html>
